@@ -1,0 +1,7 @@
+# The program itself only uses the Python 3 standard library.
+# The packages below are used for automated testing, coverage, and quality checks.
+pytest>=8.0,<10
+pytest-cov>=6.0,<8
+coverage>=7.0,<8
+ruff>=0.11,<1
+
