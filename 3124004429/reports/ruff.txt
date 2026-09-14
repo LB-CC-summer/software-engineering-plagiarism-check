@@ -2,4 +2,4 @@
 All checks passed!
 
 == Ruff format --check ==
-26 files already formatted
+28 files already formatted

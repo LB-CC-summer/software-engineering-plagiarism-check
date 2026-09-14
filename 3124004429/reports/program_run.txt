@@ -1,0 +1,11 @@
+== 1. Python 源文件语法检查 ==
+> python -m py_compile main.py plagiarism\*.py
+(无输出，语法检查成功)
+
+== 2. 运行论文查重程序 ==
+> python main.py samples\orig.txt samples\orig_0.8_add.txt samples\ans.txt
+0.80
+
+== 3. 查看答案文件 ==
+> Get-Content samples\ans.txt
+0.80
