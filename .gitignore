@@ -8,6 +8,8 @@ __pycache__/
 htmlcov/
 .ruff_cache/
 .mypy_cache/
+**/reports/html/
+**/images/.edge-profile/
 
 # Virtual environments
 .venv/
@@ -24,4 +26,3 @@ env/
 .vscode/
 .DS_Store
 Thumbs.db
-

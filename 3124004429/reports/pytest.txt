@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.1.0, anyio-4.2.0
+collected 44 items
+
+tests\test_cli.py ......                                                 [ 13%]
+tests\test_io_utils.py .........                                         [ 34%]
+tests\test_normalization.py ......                                       [ 47%]
+tests\test_samples.py ......                                             [ 61%]
+tests\test_similarity.py .................                               [100%]
+
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.12.7-final-0 _______________
+
+Name    Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------
+TOTAL     165      0     48      0   100%
+
+6 files skipped due to complete coverage.
+Coverage HTML written to dir htmlcov
+Coverage XML written to file reports/coverage.xml
+Coverage JSON written to file reports/coverage.json
+Required test coverage of 95.0% reached. Total coverage: 100.00%
+============================= 44 passed in 1.23s ==============================

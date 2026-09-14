@@ -1,0 +1,30 @@
+Mon Sep 14 19:46:32 2026    reports\profile_after.prof
+
+         740746 function calls in 0.199 seconds
+
+   Ordered by: cumulative time
+   List reduced from 33 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        5    0.001    0.000    0.199    0.040 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:69(calculate_similarity)
+       30    0.000    0.000    0.091    0.003 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:27(count_ngrams)
+       30    0.000    0.000    0.091    0.003 D:\anaconda\Lib\collections\__init__.py:595(__init__)
+       30    0.000    0.000    0.090    0.003 D:\anaconda\Lib\collections\__init__.py:669(update)
+       30    0.045    0.001    0.090    0.003 {built-in method _collections._count_elements}
+       15    0.000    0.000    0.054    0.004 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:37(_cosine_similarity)
+       45    0.019    0.000    0.054    0.001 {built-in method builtins.sum}
+       10    0.000    0.000    0.053    0.005 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\normalization.py:89(normalize_text)
+   254790    0.046    0.000    0.046    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:34(<genexpr>)
+       10    0.009    0.001    0.041    0.004 {method 'join' of 'str' objects}
+    84940    0.020    0.000    0.031    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\normalization.py:103(<genexpr>)
+    72550    0.015    0.000    0.025    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:48(<genexpr>)
+       10    0.012    0.001    0.012    0.001 {built-in method unicodedata.normalize}
+   105845    0.012    0.000    0.012    0.000 {method 'isalnum' of 'str' objects}
+    72535    0.010    0.000    0.010    0.000 {method 'get' of 'dict' objects}
+    76950    0.005    0.000    0.005    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:50(<genexpr>)
+    72550    0.005    0.000    0.005    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\similarity.py:49(<genexpr>)
+       10    0.000    0.000    0.000    0.000 {method 'casefold' of 'str' objects}
+       10    0.000    0.000    0.000    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\normalization.py:66(extract_embedded_text)
+       10    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+
+

@@ -1,0 +1,44 @@
+[
+  {
+    "algorithm": "baseline-difflib",
+    "repeat": 1,
+    "characters": 8493,
+    "seconds": 0.23818800004664809,
+    "score": 0.8318615330271989
+  },
+  {
+    "algorithm": "optimized-ngram",
+    "repeat": 1,
+    "characters": 8493,
+    "seconds": 0.019947199965827167,
+    "score": 0.8410678213750002
+  },
+  {
+    "algorithm": "baseline-difflib",
+    "repeat": 2,
+    "characters": 16986,
+    "seconds": 0.9716622000560164,
+    "score": 0.8318615330271989
+  },
+  {
+    "algorithm": "optimized-ngram",
+    "repeat": 2,
+    "characters": 16986,
+    "seconds": 0.03523519996087998,
+    "score": 0.841073581708732
+  },
+  {
+    "algorithm": "baseline-difflib",
+    "repeat": 5,
+    "characters": 42465,
+    "seconds": 7.6925496000330895,
+    "score": 0.8318615330271989
+  },
+  {
+    "algorithm": "optimized-ngram",
+    "repeat": 5,
+    "characters": 42465,
+    "seconds": 0.084391999989748,
+    "score": 0.8410825668159678
+  }
+]

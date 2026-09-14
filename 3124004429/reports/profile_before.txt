@@ -1,0 +1,30 @@
+Mon Sep 14 19:46:09 2026    reports\profile_before.prof
+
+         6004356 function calls in 2.299 seconds
+
+   Ordered by: cumulative time
+   List reduced from 33 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        5    0.001    0.000    2.298    0.460 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\scripts\algorithm_lab.py:31(baseline_similarity)
+        5    0.000    0.000    2.216    0.443 D:\anaconda\Lib\difflib.py:597(ratio)
+        5    0.012    0.002    2.215    0.443 D:\anaconda\Lib\difflib.py:421(get_matching_blocks)
+     8415    1.595    0.000    2.194    0.000 D:\anaconda\Lib\difflib.py:305(find_longest_match)
+  5633650    0.592    0.000    0.592    0.000 {method 'get' of 'dict' objects}
+       10    0.000    0.000    0.055    0.005 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\normalization.py:89(normalize_text)
+       10    0.010    0.001    0.041    0.004 {method 'join' of 'str' objects}
+    84940    0.020    0.000    0.032    0.000 C:\Users\Lenovo\Documents\Codex\2026-09-14\new-chat\work\repo\software-engineering-plagiarism-check\3124004429\plagiarism\normalization.py:103(<genexpr>)
+        5    0.000    0.000    0.027    0.005 D:\anaconda\Lib\difflib.py:120(__init__)
+        5    0.000    0.000    0.027    0.005 D:\anaconda\Lib\difflib.py:184(set_seqs)
+        5    0.000    0.000    0.027    0.005 D:\anaconda\Lib\difflib.py:222(set_seq2)
+        5    0.015    0.003    0.027    0.005 D:\anaconda\Lib\difflib.py:266(__chain_b)
+       10    0.013    0.001    0.013    0.001 {built-in method unicodedata.normalize}
+   105845    0.012    0.000    0.012    0.000 {method 'isalnum' of 'str' objects}
+    60410    0.009    0.000    0.009    0.000 {method 'append' of 'list' objects}
+    42465    0.006    0.000    0.006    0.000 {method 'setdefault' of 'dict' objects}
+     8415    0.002    0.000    0.003    0.000 <string>:1(<lambda>)
+    24120    0.003    0.000    0.003    0.000 {method '__contains__' of 'set' objects}
+     4770    0.002    0.000    0.003    0.000 D:\anaconda\Lib\collections\__init__.py:447(_make)
+    13185    0.003    0.000    0.003    0.000 {built-in method __new__ of type object at 0x00007FFFE2386A20}
+
+
