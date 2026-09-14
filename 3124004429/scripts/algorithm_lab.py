@@ -26,6 +26,7 @@ class BenchmarkResult:
     characters: int
     seconds: float
     score: float
+    runs: int
 
 
 def baseline_similarity(original_text: str, candidate_text: str) -> float:
@@ -52,22 +53,28 @@ def _measure(
     original: str,
     candidate: str,
     repeat: int,
+    runs: int = 1,
 ) -> BenchmarkResult:
-    started_at = perf_counter()
-    score = function(original, candidate)
-    elapsed = perf_counter() - started_at
+    measurements: list[tuple[float, float]] = []
+    for _ in range(runs):
+        started_at = perf_counter()
+        score = function(original, candidate)
+        measurements.append((perf_counter() - started_at, score))
+    elapsed, score = min(measurements, key=lambda item: item[0])
     return BenchmarkResult(
         algorithm=algorithm,
         repeat=repeat,
         characters=len(normalize_text(original)),
         seconds=elapsed,
         score=score,
+        runs=runs,
     )
 
 
 def run_benchmarks(
     samples_dir: Path,
     repeats: tuple[int, ...] = (1, 2, 5),
+    runs: int = 3,
 ) -> list[BenchmarkResult]:
     """Measure both algorithms on the course sample at several sizes."""
 
@@ -90,6 +97,7 @@ def run_benchmarks(
                     scaled_original,
                     scaled_candidate,
                     repeat,
+                    runs,
                 )
             )
     return results
@@ -108,13 +116,13 @@ def write_reports(results: list[BenchmarkResult], report_dir: Path) -> None:
     lines = [
         "# 性能对比",
         "",
-        "| 算法 | 文本规模 | 耗时（秒） | 重复率 |",
-        "| --- | ---: | ---: | ---: |",
+        "| 算法 | 文本规模 | 最佳耗时（秒） | 运行次数 | 重复率 |",
+        "| --- | ---: | ---: | ---: | ---: |",
     ]
     for result in results:
         lines.append(
             f"| {result.algorithm} | {result.characters} 字符 | "
-            f"{result.seconds:.4f} | {result.score:.4f} |"
+            f"{result.seconds:.4f} | {result.runs} | {result.score:.4f} |"
         )
 
     for repeat in sorted({result.repeat for result in results}):
@@ -144,7 +152,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--samples-dir",
         type=Path,
-        default=Path("data/samples"),
+        default=Path("samples"),
     )
     parser.add_argument(
         "--report-dir",
@@ -155,6 +163,12 @@ def parse_args() -> argparse.Namespace:
         "--repeats",
         default="1,2,5",
         help="comma-separated text repeat factors",
+    )
+    parser.add_argument(
+        "--measure-runs",
+        type=int,
+        default=3,
+        help="number of measurements per algorithm; the best value is kept",
     )
     return parser.parse_args()
 
@@ -167,7 +181,13 @@ def main() -> int:
         )
         original = read_document(args.samples_dir / "orig.txt")
         candidate = read_document(args.samples_dir / "orig_0.8_dis_10.txt")
-        result = _measure(args.mode, function, original, candidate, repeat=1)
+        result = _measure(
+            args.mode,
+            function,
+            original,
+            candidate,
+            repeat=1,
+        )
         print(
             f"{result.algorithm:12s} seconds={result.seconds:.4f} "
             f"score={result.score:.4f}"
@@ -175,7 +195,11 @@ def main() -> int:
         return 0
 
     repeats = tuple(int(value) for value in args.repeats.split(","))
-    results = run_benchmarks(args.samples_dir, repeats=repeats)
+    results = run_benchmarks(
+        args.samples_dir,
+        repeats=repeats,
+        runs=args.measure_runs,
+    )
     write_reports(results, args.report_dir)
     for result in results:
         print(

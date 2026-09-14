@@ -8,7 +8,7 @@ import pytest
 from plagiarism.io_utils import read_document
 from plagiarism.similarity import calculate_similarity
 
-SAMPLES = Path(__file__).parents[1] / "data" / "samples"
+SAMPLES = Path(__file__).parents[1] / "samples"
 
 
 @pytest.mark.parametrize(

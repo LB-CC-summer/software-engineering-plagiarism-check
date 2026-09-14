@@ -22,7 +22,7 @@ python main.py <原文文件绝对路径> <抄袭版文件绝对路径> <答案�
 示例：
 
 ```powershell
-python main.py data/samples/orig.txt data/samples/orig_0.8_add.txt answer.txt
+python main.py samples/orig.txt samples/orig_0.8_add.txt answer.txt
 ```
 
 ## 算法
@@ -43,7 +43,11 @@ python main.py data/samples/orig.txt data/samples/orig_0.8_add.txt answer.txt
 ```text
 3124004429/
 ├── main.py
+├── profile_checker.py
 ├── requirements.txt
+├── pyproject.toml
+├── PSP.md
+├── README.md
 ├── plagiarism/
 │   ├── cli.py
 │   ├── errors.py
@@ -51,7 +55,7 @@ python main.py data/samples/orig.txt data/samples/orig_0.8_add.txt answer.txt
 │   ├── normalization.py
 │   └── similarity.py
 ├── tests/
-├── data/samples/
+├── samples/
 ├── scripts/
 ├── reports/
 ├── images/
@@ -83,10 +87,10 @@ python -m ruff format --check .
 
 | 算法 | 耗时 |
 | --- | ---: |
-| 基线 `difflib.SequenceMatcher` | 7.6925 秒 |
-| 优化 n-gram 余弦 | 0.0844 秒 |
+| 基线 `difflib.SequenceMatcher` | 10.5560 秒 |
+| 优化 n-gram 余弦 | 0.1571 秒 |
 
-优化后约加速 91 倍，并消除了平方级复杂度带来的超时风险。
+优化后约加速 67 倍，并消除了平方级复杂度带来的超时风险。
 
 ## 文档
 
@@ -94,4 +98,3 @@ python -m ruff format --check .
 - [单元测试与异常报告](docs/test_report.md)
 - [PSP 表](docs/psp.md)
 - [博客园博文草稿](docs/blog.md)
-

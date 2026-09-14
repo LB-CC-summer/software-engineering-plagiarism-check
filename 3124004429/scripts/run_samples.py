@@ -20,7 +20,7 @@ _CANDIDATE_NAMES = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--samples-dir", type=Path, default=Path("data/samples"))
+    parser.add_argument("--samples-dir", type=Path, default=Path("samples"))
     parser.add_argument(
         "--report",
         type=Path,

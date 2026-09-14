@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "plagiarism-checker-3124004429"
 version = "1.0.0"
-description = "Software engineering individual project: document similarity checker"
+description = "软件工程个人项目：Python 论文查重程序"
 requires-python = ">=3.9"
 dependencies = []
 
@@ -30,4 +30,3 @@ line-length = 88
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "UP", "B", "SIM", "C4", "PTH", "RUF"]
 ignore = ["RUF001", "RUF002", "RUF003"]
-

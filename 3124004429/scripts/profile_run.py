@@ -17,7 +17,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mode", choices=("baseline", "optimized"), required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--repeat", type=int, default=5)
-    parser.add_argument("--samples-dir", type=Path, default=Path("data/samples"))
+    parser.add_argument("--samples-dir", type=Path, default=Path("samples"))
     return parser.parse_args()
 
 

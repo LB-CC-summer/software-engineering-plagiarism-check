@@ -133,6 +133,7 @@ def capture_text_reports(
         ("benchmark.md", "基线算法与优化算法性能对比", "benchmark_results.png", 1400),
         ("sample_results.md", "课程样例运行结果", "sample_results.png", 1000),
         ("ruff.txt", "Ruff 代码质量分析：零警告", "ruff_quality.png", 900),
+        ("program_run.txt", "程序语法检查与运行截图", "program_run.png", 1000),
     )
     for source_name, title, image_name, height in reports:
         source = report_dir / source_name
