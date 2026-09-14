@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Iterable
 from dataclasses import dataclass
 from math import sqrt
-from typing import Iterable
 
 from plagiarism.normalization import normalize_text
 
@@ -110,9 +110,6 @@ def calculate_similarity(
             candidate_counts,
         )
         total_weight += weight
-
-    if not total_weight:
-        return 0.0
 
     score = weighted_score / total_weight
     return max(0.0, min(1.0, score))

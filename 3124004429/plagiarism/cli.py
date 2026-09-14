@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 from plagiarism.errors import CommandLineError, PlagiarismError
 from plagiarism.io_utils import read_document, write_answer
@@ -41,4 +41,3 @@ def run(arguments: Sequence[str] | None = None) -> int:
 
     print(f"{similarity:.2f}")
     return 0
-
