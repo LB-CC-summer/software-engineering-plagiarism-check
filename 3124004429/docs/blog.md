@@ -115,7 +115,22 @@ plagiarism.normalization
 核心相似度函数接收两个字符串并返回 `[0.0, 1.0]` 的浮点数，因此不需要
 为每个算法测试都创建文件。
 
-![模块与数据流设计图](https://raw.githubusercontent.com/LB-CC-summer/software-engineering-plagiarism-check/main/3124004429/images/design_flow.png)
+项目共有 **2 个类** 和 **11 个主要函数**：
+
+- `SimilarityConfig`：不可变的 n-gram 权重配置类。
+- `_VisibleTextParser`：提取网页另存文件中可见正文的 HTML 解析类。
+- `run()`、`parse_args()`：负责命令行参数和流程组织。
+- `read_document()`、`decode_document()`、`write_answer()`：负责文件输入输出。
+- `extract_embedded_text()`、`normalize_text()`：负责正文提取和文本归一化。
+- `count_ngrams()`、`_cosine_similarity()`、`_iter_available_ngrams()`、
+  `calculate_similarity()`：负责核心查重计算。
+
+函数之间的调用关系是：`run()` 调用 `parse_args()` 和
+`read_document()`，随后调用 `calculate_similarity()`；后者调用
+`normalize_text()`，再对 1/2/3-gram 分别调用 `count_ngrams()` 和
+`_cosine_similarity()`，最后按权重融合并调用 `write_answer()`。
+
+![计算模块类、函数关系与关键流程图](https://raw.githubusercontent.com/LB-CC-summer/software-engineering-plagiarism-check/main/3124004429/images/calculation_module_flow.png)
 
 ### 3.2 程序入口和执行流程
 
@@ -485,7 +500,7 @@ python -m ruff format --check .
 
 ```text
 All checks passed!
-28 files already formatted
+29 files already formatted
 ```
 
 ![Ruff 代码质量分析](https://raw.githubusercontent.com/LB-CC-summer/software-engineering-plagiarism-check/main/3124004429/images/ruff_quality.png)

@@ -78,6 +78,8 @@ score = 0.15 * cosine(1-gram)
 
 ## 4. 流程图
 
+![计算模块类、函数关系与关键流程图](../images/calculation_module_flow.png)
+
 ```mermaid
 flowchart LR
     A[main.py 解析参数] --> B[读取原文和抄袭版]
