@@ -46,4 +46,3 @@ def test_extract_generic_visible_html_text() -> None:
 
 def test_plain_text_is_not_modified() -> None:
     assert extract_embedded_text("普通文本") == "普通文本"
-

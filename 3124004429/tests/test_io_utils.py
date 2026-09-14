@@ -1,7 +1,6 @@
 """Tests for document decoding, reading, and writing."""
 
 from pathlib import Path
-from unittest.mock import patch
 
 import pytest
 
@@ -54,13 +53,19 @@ def test_write_answer_to_directory_raises_write_error(tmp_path: Path) -> None:
         write_answer(tmp_path, 0.5)
 
 
-def test_read_error_is_wrapped(tmp_path: Path) -> None:
+def test_read_error_is_wrapped(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     path = tmp_path / "document.txt"
     path.write_text("text", encoding="utf-8")
 
-    with patch("pathlib.Path.read_bytes", side_effect=OSError("boom")):
-        with pytest.raises(DocumentReadError, match="无法读取"):
-            read_document(path)
+    def fail_to_read(_: Path) -> bytes:
+        raise OSError("boom")
+
+    monkeypatch.setattr(Path, "read_bytes", fail_to_read)
+    with pytest.raises(DocumentReadError, match="无法读取"):
+        read_document(path)
 
 
 def test_unsupported_encoding_raises_decode_error(

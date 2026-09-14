@@ -43,4 +43,3 @@ def test_sample_calculation_is_fast() -> None:
     elapsed = perf_counter() - started_at
 
     assert elapsed < 1.0
-

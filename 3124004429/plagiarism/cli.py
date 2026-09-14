@@ -11,8 +11,7 @@ from plagiarism.io_utils import read_document, write_answer
 from plagiarism.similarity import calculate_similarity
 
 USAGE = (
-    "usage: python main.py "
-    "<原文文件绝对路径> <抄袭版文件绝对路径> <答案文件绝对路径>"
+    "usage: python main.py <原文文件绝对路径> <抄袭版文件绝对路径> <答案文件绝对路径>"
 )
 
 

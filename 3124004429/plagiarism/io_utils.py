@@ -16,9 +16,7 @@ def decode_document(raw: bytes, source: Path) -> str:
         try:
             return raw.decode("utf-16")
         except UnicodeDecodeError as exc:
-            raise DocumentDecodeError(
-                f"无法按 UTF-16 解码文件：{source}"
-            ) from exc
+            raise DocumentDecodeError(f"无法按 UTF-16 解码文件：{source}") from exc
 
     for encoding in _SUPPORTED_ENCODINGS:
         try:
@@ -52,4 +50,3 @@ def write_answer(path: Path, similarity: float) -> None:
         path.write_text(f"{similarity:.2f}\n", encoding="utf-8")
     except OSError as exc:
         raise AnswerWriteError(f"无法写入答案文件：{path}") from exc
-

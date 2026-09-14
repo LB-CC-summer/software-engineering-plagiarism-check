@@ -19,4 +19,3 @@ class DocumentDecodeError(PlagiarismError):
 
 class AnswerWriteError(PlagiarismError):
     """Raised when the answer file cannot be written."""
-

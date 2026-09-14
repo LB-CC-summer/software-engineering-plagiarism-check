@@ -39,9 +39,7 @@ def test_cli_reports_missing_input(tmp_path: Path, capsys) -> None:
     candidate.write_text("文本", encoding="utf-8")
     answer = tmp_path / "answer.txt"
 
-    exit_code = run(
-        [str(tmp_path / "missing.txt"), str(candidate), str(answer)]
-    )
+    exit_code = run([str(tmp_path / "missing.txt"), str(candidate), str(answer)])
 
     assert exit_code == 2
     assert "输入文件不存在" in capsys.readouterr().err
@@ -71,4 +69,3 @@ def test_cli_reports_output_error(tmp_path: Path, capsys) -> None:
 
     assert exit_code == 2
     assert "无法写入答案文件" in capsys.readouterr().err
-

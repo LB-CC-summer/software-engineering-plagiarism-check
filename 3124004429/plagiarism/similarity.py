@@ -45,10 +45,7 @@ def _cosine_similarity(
     if len(left) > len(right):
         left, right = right, left
 
-    dot_product = sum(
-        count * right.get(ngram, 0)
-        for ngram, count in left.items()
-    )
+    dot_product = sum(count * right.get(ngram, 0) for ngram, count in left.items())
     left_norm = sqrt(sum(count * count for count in left.values()))
     right_norm = sqrt(sum(count * count for count in right.values()))
     if not left_norm or not right_norm:

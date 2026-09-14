@@ -78,10 +78,7 @@ def extract_embedded_text(text: str) -> str:
 
     rows = _GITHUB_BLOB_ROW_RE.findall(text)
     if rows:
-        return "\n".join(
-            unescape(_TAG_RE.sub("", row))
-            for row in rows
-        )
+        return "\n".join(unescape(_TAG_RE.sub("", row)) for row in rows)
 
     parser = _VisibleTextParser()
     parser.feed(text)
